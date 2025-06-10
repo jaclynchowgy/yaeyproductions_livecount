@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Channel Live Subscriber Counts</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to ensure full viewport height and flexible iframe sizing */
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack children vertically */
+            background-color: #1a202c; /* Dark background */
+        }
+        /* Style for the container holding the iframes */
+        .iframe-grid {
+            display: grid;
+            gap: 1rem; /* Gap between iframes */
+            padding: 1rem;
+            flex-grow: 1; /* Allow the grid to take available space */
+            /* Responsive grid: 1 column on small screens, 2 columns on medium and larger */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Min width for embed content */
+            /* Ensure iframes fill their grid cells */
+            align-items: stretch;
+            justify-items: stretch;
+        }
+
+        @media (min-width: 768px) { /* Medium screens and up */
+            .iframe-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns */
+            }
+        }
+        iframe {
+            width: 100%; /* Make iframe fill its parent grid item */
+            height: 100px; /* Adjusted height for embed content */
+            border: none;
+            border-radius: 0.75rem; /* rounded-xl from Tailwind */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow */
+            /* Ensure background is transparent if iframe allows */
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+    <div class="container mx-auto p-4 text-center">
+        <h1 class="text-3xl font-bold mb-6 text-indigo-400">Live YouTube Subscriber Counters</h1>
+        <p class="text-gray-400 text-sm mb-4">Displaying live counts from livecounts.io embed links.</p>
+    </div>
+
+    <div class="iframe-grid">
+        <!-- Iframe for im_siowei -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg flex flex-col justify-center items-center">
+            <h2 class="text-xl font-semibold mb-2 text-blue-300">im_siowei</h2>
+            <iframe src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCSgue5Dm418CCUCZ-aeUtEA"
+                    title="im_siowei Live Subscriber Count"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Iframe for Sista YAEY -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg flex flex-col justify-center items-center">
+            <h2 class="text-xl font-semibold mb-2 text-green-300">Sista YAEY</h2>
+            <iframe src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCsgN8D9f4MpUfmS6LQ_cZfQ"
+                    title="Sista YAEY Live Subscriber Count"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Iframe for YAEY Gang -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg flex flex-col justify-center items-center">
+            <h2 class="text-xl font-semibold mb-2 text-red-300">YAEY Gang</h2>
+            <iframe src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCqyb2Fnwnd-bmfX9qjGKmUA"
+                    title="YAEY Gang Live Subscriber Count"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Iframe for Siowei World -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg flex flex-col justify-center items-center">
+            <h2 class="text-xl font-semibold mb-2 text-purple-300">Siowei World</h2>
+            <!-- Inferred embed link based on pattern, as explicit embed was not provided for this channel -->
+            <iframe src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCXlDsYe-QtRuEGRm_aci1ug"
+                    title="Siowei World Live Subscriber Count"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
